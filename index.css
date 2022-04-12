@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('http://fonts.cdnfonts.com/css/geometria?styles=17358,17356,17347,17352,17354,17343,17345,17349, 17351,17357,17348,17353,17355,17344,17346,17350');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 14px;
+}
+
+header {
+    font-family: 'Geometria', sans-serif;
+    font-size: 14px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+}
+
+.socials {
+    margin: 20px;
+}
+
+.fa-instagram,
+.fa-linkedin-in {
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+}
