@@ -42,7 +42,7 @@ function makeRequest(url) {
             }
         },
         error: function (error) {
-            console.log(error)
+            console.log("algo de certo não está errado")
         },
     });
 }

@@ -83,3 +83,18 @@ input[type="date"] {
 #date {
     font-weight: 700;
 }
+
+a:visited {
+    color: black;
+}
+
+@media only screen and (max-width: 1000px) {
+    .page-content {
+        flex-direction: column;
+    }
+
+    .info-container,
+    .image-container {
+        width: 100%;
+    }
+}
