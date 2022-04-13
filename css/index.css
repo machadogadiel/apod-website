@@ -1,11 +1,10 @@
 @import url('http://fonts.cdnfonts.com/css/geometria?styles=17358,17356,17347,17352,17354,17343,17345,17349, 17351,17357,17348,17353,17355,17344,17346,17350');
 
-body {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Geometria', sans-serif;
-    /* background-color: black; */
 }
 
 h1 {
@@ -86,6 +85,27 @@ input[type="date"] {
 
 a:visited {
     color: black;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo div {
+    margin: 10px;
+}
+
+.explanation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.explanation img {
+    margin: 10px;
 }
 
 @media only screen and (max-width: 1000px) {

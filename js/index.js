@@ -13,9 +13,9 @@ $("#input-date").on("change", function () {
 
 });
 
-let dateText = $("#date")
+let dateDisplay = $("#date")
 
-dateText.text(getDate())
+dateDisplay.text(getDate())
 
 function makeRequest(url) {
     $.ajax({
@@ -27,9 +27,9 @@ function makeRequest(url) {
             let inputDateElement = $("#input-date")
             let explanationElement = $("#explanation-element")
 
+            linkElement.attr("href", response.hdurl)
             imageElement.attr("src", response.url)
             imageElement.attr("alt", response.title)
-            linkElement.attr("href", response.hdurl)
             inputDateElement.attr("value", response.date)            
 
             explanationElement.text(response.explanation)
@@ -48,7 +48,7 @@ function makeRequest(url) {
 }
 
 function getDate() {
-    var date = new Date();
+    let date = new Date();
 
     const months = [
         "January",
@@ -75,14 +75,14 @@ function getDate() {
         "Saturday"
     ]
 
-    let currentDayNum = date.getDate()
+    let currentDay = date.getDate()
     let currentDayName = days[date.getDay()]
     let currentMonth = months[date.getMonth()]
 
     console.log(date.getMonth())
     console.log(date.getDay())
 
-    var formattedDate = `${currentDayName} | ${currentMonth} ${currentDayNum}th`
+    var formattedDate = `${currentDayName} | ${currentMonth} ${currentDay}th`
 
     return formattedDate;
 }
