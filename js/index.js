@@ -3,7 +3,7 @@ const url = "https://api.nasa.gov/planetary/apod?api_key=" + apiKey
 
 makeRequest(url)
 
-$("#input-date").on("change", function () {
+$("#submit-btn").click( function () {
 
     setTimeout(function () {
         let date = $("#input-date").val()
@@ -41,7 +41,7 @@ function makeRequest(url) {
                 iframeElement.show()
             }
         },
-        error: function (error) {
+        error: function () {
             console.log("algo de certo não está errado")
         },
     });
@@ -78,9 +78,6 @@ function getDate() {
     let currentDay = date.getDate()
     let currentDayName = days[date.getDay()]
     let currentMonth = months[date.getMonth()]
-
-    console.log(date.getMonth())
-    console.log(date.getDay())
 
     var formattedDate = `${currentDayName} | ${currentMonth} ${currentDay}th`
 

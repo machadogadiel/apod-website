@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Astronomy picture of the day</title>
+
 </head>
 <body>
     <header>
-        
-
         <div class="logo">
             <img class="logo-img" src="./image/apod-icon.svg" height="50px" width="50px"  alt="">
 
@@ -34,20 +34,20 @@
 
         <div class="image-container">
             <img id="apod-image" src="" alt="">
-
             <iframe id="apod-video" src="" frameborder="0" allowfullscreen></iframe>
         </div>
         
         <div class="info-container">
+            
+            <div class="explanation">
+                <h2>Explanation</h2>
+                <img src="./image/info.svg" alt="">
+                <p id="explanation-element"></p>
+            </div>
+
             <label for="date"><h2>Choose a date and we'll show the picture of that day.</h2></label>
             <input type="date" id="input-date" value="" min="1995-06-16">
-
-            <div class="explanation">
-                <img src="./image/info.svg" alt="">
-                
-                <h2>Explanation</h2>
-            </div>
-            <p id="explanation-element"></p>
+            <input type="submit" name="submit" id="submit-btn" value="Show me">
         </div>
     
     </div>
