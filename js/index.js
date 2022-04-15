@@ -7,9 +7,9 @@ makeRequest(url)
 
 $("#submit-btn").click(function () {
     let inputDate = $("#input-date").val()
-    let test = new Date(inputDate)
+    let dateInput = new Date(inputDate)
 
-    if (test >= minDate && test <= maxDate ) {
+    if (dateInput >= minDate && dateInput <= maxDate ) {
         makeRequest(url + `&date=${inputDate}`)
     } else {
         setInvalidDateStyle()
