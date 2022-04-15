@@ -1,38 +1,39 @@
 const apiKey = "0rVXRVo6o5fdEbBwflG2ogibzzDXNcT5gNngfVF2"
 const url = "https://api.nasa.gov/planetary/apod?api_key=" + apiKey
+const minDate = new Date(1995, 06, 16)
+let maxDate = ""
 
 makeRequest(url)
 
-$("#submit-btn").click( function () {
+$("#submit-btn").click(function () {
+    let inputDate = $("#input-date").val()
 
-    setTimeout(function () {
-        let date = $("#input-date").val()
-
-        makeRequest(url + `&date=${date}`)
-    }, 2000);
-
+    if (inputDate > maxDate || inputDate < minDate) {
+        makeRequest(url + `&date=${inputDate}`)
+    } else {
+        setInvalidDateStyle()
+    }
 });
 
-let dateDisplay = $("#date")
+$("#date").text(getDisplayDate())
 
-dateDisplay.text(getDate())
+function setInvalidDateStyle() {
+    const errorText = document.createElement("p")
+    errorText.innerText = "Your date must be between June 16 of 1995 and today's date"
+    errorText.style.color =  "#f5001f"
+
+    $(".info-container").append(errorText)
+}
+
 
 function makeRequest(url) {
     $.ajax({
         url: url,
         success: function (response) {
-            let linkElement = $("#hdlink")
+            maxDate = new Date(response.date)
+
             let imageElement = $("#apod-image")
             let iframeElement = $("#apod-video")
-            let inputDateElement = $("#input-date")
-            let explanationElement = $("#explanation-element")
-
-            linkElement.attr("href", response.hdurl)
-            imageElement.attr("src", response.url)
-            imageElement.attr("alt", response.title)
-            inputDateElement.attr("value", response.date)            
-
-            explanationElement.text(response.explanation)
 
             if (response.media_type == "video") {
                 imageElement.hide()
@@ -40,14 +41,18 @@ function makeRequest(url) {
                 iframeElement.attr("src", response.url)
                 iframeElement.show()
             }
-        },
-        error: function () {
-            console.log("algo de certo não está errado")
-        },
+
+            imageElement.attr("src", response.url)
+            imageElement.attr("alt", response.title)
+            
+            $("#hdlink").attr("href", response.hdurl)
+            $("#explanation-element").text(response.explanation)
+
+        }
     });
 }
 
-function getDate() {
+function getDisplayDate() {
     let date = new Date();
 
     const months = [
@@ -77,9 +82,9 @@ function getDate() {
 
     let currentDay = date.getDate()
     let currentDayName = days[date.getDay()]
-    let currentMonth = months[date.getMonth()]
+    let currentMonthName = months[date.getMonth()]
 
-    var formattedDate = `${currentDayName} | ${currentMonth} ${currentDay}th`
+    var formattedDate = `${currentDayName} | ${currentMonthName} ${currentDay}th`
 
     return formattedDate;
 }
