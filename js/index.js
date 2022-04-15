@@ -1,14 +1,15 @@
 const apiKey = "0rVXRVo6o5fdEbBwflG2ogibzzDXNcT5gNngfVF2"
 const url = "https://api.nasa.gov/planetary/apod?api_key=" + apiKey
 const minDate = new Date(1995, 06, 16)
-let maxDate = ""
+const maxDate = new Date()
 
 makeRequest(url)
 
 $("#submit-btn").click(function () {
     let inputDate = $("#input-date").val()
+    let test = new Date(inputDate)
 
-    if (inputDate > maxDate || inputDate < minDate) {
+    if (test >= minDate && test <= maxDate ) {
         makeRequest(url + `&date=${inputDate}`)
     } else {
         setInvalidDateStyle()
@@ -19,9 +20,11 @@ $("#date").text(getDisplayDate())
 
 function setInvalidDateStyle() {
     const errorText = document.createElement("p")
-    errorText.innerText = "Your date must be between June 16 of 1995 and today's date"
+    
+    errorText.innerText = "Your date must be between 1995 June 16th and today's date"
     errorText.style.color =  "#f5001f"
-
+    errorText.setAttribute("id", "#error-text")
+    
     $(".info-container").append(errorText)
 }
 
@@ -30,8 +33,6 @@ function makeRequest(url) {
     $.ajax({
         url: url,
         success: function (response) {
-            maxDate = new Date(response.date)
-
             let imageElement = $("#apod-image")
             let iframeElement = $("#apod-video")
 
@@ -51,6 +52,7 @@ function makeRequest(url) {
         }
     });
 }
+
 
 function getDisplayDate() {
     let date = new Date();
