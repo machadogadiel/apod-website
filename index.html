@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="./css/index.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Astronomy picture of the day</title>
-
 </head>
+
 <body>
     <header>
         <div class="logo">
-            <img class="logo-img" src="./image/apod-icon.svg" height="50px" width="50px"  alt="">
+            <img class="logo-img" src="./image/apod-icon.svg" height="50px" width="50px" alt="" />
 
             <div>
                 <h1>ASTRONOMY</h1>
                 <h1>PICTURE</h1>
                 <h1>OF THE DAY</h1>
             </div>
-            
         </div>
 
         <h1 id="date"></h1>
@@ -29,33 +29,30 @@
         </a>
     </header>
 
-
     <div class="page-content">
-
         <div class="image-container">
-            <a href="" id="hdlink">
-                <img id="apod-image" src="" alt="">
-            </a>
+            <img id="apod-image" src="" alt=""/>
             <iframe id="apod-video" src="" frameborder="0" allowfullscreen></iframe>
         </div>
-        
+
         <div class="info-container">
-            
             <div class="explanation">
-                <h2>Explanation</h2>
-                <img src="./image/info.svg" alt="">
-                <p id="explanation-element"></p>
+                <img src="./image/info.svg" alt="" height="16" width="16"/>
+                <h2>About this photo</h2>
             </div>
 
-            <label for="date"><h2>Choose a date and we'll show the picture of that day.</h2></label>
-            <input type="date" id="input-date" value="" min="1995-06-16">
-            <input type="submit" name="submit" id="submit-btn" value="Show me">
+            <p id="explanation-element"></p>
+
+            <h3>Choose a date and we'll show the picture of that day.</h3>
+
+            <input type="date" id="input-date" value="" min="1995-06-16" />
+            <input type="submit" name="submit" id="submit-btn" value="Show me" />
         </div>
-    
     </div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/e87f03ae6c.js" crossorigin="anonymous"></script>
     <script src="./js/index.js"></script>
 </body>
+
 </html>

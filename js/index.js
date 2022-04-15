@@ -16,14 +16,18 @@ $("#submit-btn").click(function () {
     }
 });
 
-$("#date").text(getDisplayDate())
+$("#date").text(displayTodayDate())
 
 function setInvalidDateStyle() {
+    if (document.getElementById("error-text") != null){
+        document.getElementById("error-text").remove()
+    }
+
     const errorText = document.createElement("p")
     
     errorText.innerText = "Your date must be between 1995 June 16th and today's date"
     errorText.style.color =  "#f5001f"
-    errorText.setAttribute("id", "#error-text")
+    errorText.setAttribute("id", "error-text")
     
     $(".info-container").append(errorText)
 }
@@ -46,15 +50,13 @@ function makeRequest(url) {
             imageElement.attr("src", response.url)
             imageElement.attr("alt", response.title)
             
-            $("#hdlink").attr("href", response.hdurl)
             $("#explanation-element").text(response.explanation)
-
         }
     });
 }
 
 
-function getDisplayDate() {
+function displayTodayDate() {
     let date = new Date();
 
     const months = [
@@ -70,7 +72,7 @@ function getDisplayDate() {
         "October",
         "November",
         "December"
-    ];
+    ]
 
     const days = [
         "Sunday",
